@@ -23,6 +23,8 @@ void *ft_memset(void *ptr, int value, size_t num)
     unsigned char *byte_ptr = (unsigned char *)ptr;
 
     // Recorre los `num` bytes y asigna el valor
+    if (num == 0)
+        return (0);
     while (i < num)
     {
         byte_ptr[i] = (unsigned char)value;
