@@ -17,10 +17,32 @@
 //num: Es la cantidad de bytes que quieres modificar.
 //memset establece num bytes de memoria apuntada por ptr al valor value.
 
-void *memset(void *ptr, int value, size_t num);
+void *ft_memset(void *ptr, int value, size_t num)
 {
-	unsigned char *ptr;
+    size_t i = 0;
+    unsigned char *byte_ptr = (unsigned char *)ptr;
 
-	while (num > ptr[num])
-		value++;
+    // Recorre los `num` bytes y asigna el valor
+    while (i < num)
+    {
+        byte_ptr[i] = (unsigned char)value;
+        i++;
+    }
+
+    // Devuelve el puntero original
+    return ptr;
+}
+
+int main(void)
+{
+    char str[10] = "123456789";
+// Define un array de caracteres de tamaño 10 e inicializa los primeros 9 caracteres con "123456789" y el último con el terminador nulo '\0'.
+// Usamos memset para poner 'x' en los primeros 5 caracteres
+    memset(str, 'x', 5);
+    
+    // Imprimimos el resultado
+    printf("%s\n", str);  // Debería imprimir: "xxxxx6789"
+//%s le dice a printf que reciba un puntero a un array de caracteres (es decir, una cadena de texto) y lo imprima.
+
+    return 0;
 }
